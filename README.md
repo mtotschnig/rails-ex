@@ -20,6 +20,8 @@
 Rails Sample App on OpenShift
 ============================
 
+Symbioticon'18
+
 This is a quickstart Rails application for OpenShift v3 that you can use as a starting point to develop your own application and deploy it on an [OpenShift](https://github.com/openshift/origin) cluster.
 
 If you'd like to install it, follow [these directions](https://github.com/sclorg/rails-ex/blob/master/README.md#installation).  
