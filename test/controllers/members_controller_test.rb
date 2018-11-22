@@ -3,6 +3,7 @@ require 'test_helper'
 class MembersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @member = members(:one)
+    @community = communities(:one)
   end
 
   test "should get index" do

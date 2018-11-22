@@ -5,7 +5,7 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @members = Member.order('name asc').all
-    @community = Community.find(1)
+    @community = Community.all[0]
   end
 
   # GET /members/1
