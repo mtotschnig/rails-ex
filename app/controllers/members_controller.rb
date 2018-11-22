@@ -1,10 +1,11 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_member, only: [:show, :edit, :update, :destroy, :reward, :donate, :exchange]
 
   # GET /members
   # GET /members.json
   def index
-    @members = Member.all
+    @members = Member.order('name asc').all
+    @community = Community.find(1)
   end
 
   # GET /members/1
@@ -59,6 +60,31 @@ class MembersController < ApplicationController
       format.html { redirect_to members_url, notice: 'Member was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  
+  def reward
+    @community = Community.find(1)
+    @community.balance = @community.balance - 10
+    @community.save
+    @member.balance = @member.balance + 10
+    @member.save
+    redirect_to action: "index"
+  end
+  
+  def donate
+    @community = Community.find(1)
+    @community.balance = @community.balance + 10
+    @community.save
+    @member.balance = @member.balance - 10
+    @member.save
+    redirect_to action: "index"
+  end
+  
+    
+  def exchange
+    @member.balance = @member.balance - 100
+    @member.save
+    redirect_to action: "index"
   end
 
   private
