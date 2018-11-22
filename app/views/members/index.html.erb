@@ -12,7 +12,7 @@
   <thead>
     <tr>
        <% @members.each do |member| %>
-        <th width="25%"><%= member.name %> (<%= link_to 'Edit', edit_member_path(member) %>)</th>
+        <th width="25%"><%= member.name %></th>
         <% end %>
     </tr>
   </thead>
